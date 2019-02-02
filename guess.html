@@ -1,0 +1,94 @@
+<html>
+<head>
+<script language="JavaScript">
+<!-- ;
+// numberguess is by Lancer
+// lancer@kp.planet.gen.nz
+
+// TODO: Change the number range
+// TODO: Change the hints
+// TODO: Bonus: Change colors
+
+var guessme = Math.round(Math.random()*(99)+1);
+var speech = 'Guess my number (from 1 to 100)';
+
+function process(mystery) {
+	var guess = document.forms.guessquiz.guess.value;
+	var speech = '"' + guess + '" does not make sense to me.';
+	document.forms.guessquiz.guess.value = '';
+	
+	if (guess == mystery)
+	{
+		document.forms.guessquiz.prompt.value='Congratulations! '+mystery+' is correct!';
+		alert ('Well done - the mystery number is '+mystery+'! \n\nPress this button to reload the page for another game.');
+		speech = '';
+		document.location = document.location;
+	}
+	
+	if (mystery < guess)
+	{
+		speech = 'Less than ' + guess;
+	}
+	
+	if (mystery > guess)
+	{
+		speech = 'Greater than ' + guess;
+	}
+	
+	if (guess == '')
+	{
+		speech = 'You didn\'t guess anything!'
+	}
+	
+	document.forms.guessquiz.prompt.value=speech; 
+	document.forms.guessquiz.guess.focus();
+
+}
+
+// end hide -->
+</script>
+<style>
+	html {
+		font-family: sans-serif;
+	}
+	form {
+		align-content: center;
+	}
+	table {
+		background-color: gray;
+		border: 0px;
+		align-content: center;
+	}
+	th {
+		background-color: black;
+		padding: 5px;
+	}
+	.title {
+		color: white;
+		font-weight: bold;
+	}
+</style>
+</head>
+
+<body>
+	<form onSubmit="" name="guessquiz">
+		<table>
+			<tr>
+				<th>
+					<span class="title">GUESS MY NUMBER (1 - 100)</span>
+				</th>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" name="prompt" size="31" maxlength="40" value="Guess my number (from 1 to 100)"><br>
+					<input type="text" name="guess" size="3" maxlength="3" value="">
+					<input type="button" value="Guess" onClick='process(guessme)'>
+				</td>
+			</tr>
+		</table>
+
+	</form>
+</body>
+</html>
+
+
